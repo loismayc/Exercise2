@@ -1,0 +1,15 @@
+C:\Users\lois83274\OneDrive - Willis Towers Watson\Desktop\trainocate\Exercise2\bin\Debug\net7.0\Exercise2.exe
+C:\Users\lois83274\OneDrive - Willis Towers Watson\Desktop\trainocate\Exercise2\bin\Debug\net7.0\Exercise2.deps.json
+C:\Users\lois83274\OneDrive - Willis Towers Watson\Desktop\trainocate\Exercise2\bin\Debug\net7.0\Exercise2.runtimeconfig.json
+C:\Users\lois83274\OneDrive - Willis Towers Watson\Desktop\trainocate\Exercise2\bin\Debug\net7.0\Exercise2.dll
+C:\Users\lois83274\OneDrive - Willis Towers Watson\Desktop\trainocate\Exercise2\bin\Debug\net7.0\Exercise2.pdb
+C:\Users\lois83274\OneDrive - Willis Towers Watson\Desktop\trainocate\Exercise2\obj\Debug\net7.0\Exercise2.csproj.AssemblyReference.cache
+C:\Users\lois83274\OneDrive - Willis Towers Watson\Desktop\trainocate\Exercise2\obj\Debug\net7.0\Exercise2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lois83274\OneDrive - Willis Towers Watson\Desktop\trainocate\Exercise2\obj\Debug\net7.0\Exercise2.AssemblyInfoInputs.cache
+C:\Users\lois83274\OneDrive - Willis Towers Watson\Desktop\trainocate\Exercise2\obj\Debug\net7.0\Exercise2.AssemblyInfo.cs
+C:\Users\lois83274\OneDrive - Willis Towers Watson\Desktop\trainocate\Exercise2\obj\Debug\net7.0\Exercise2.csproj.CoreCompileInputs.cache
+C:\Users\lois83274\OneDrive - Willis Towers Watson\Desktop\trainocate\Exercise2\obj\Debug\net7.0\Exercise2.dll
+C:\Users\lois83274\OneDrive - Willis Towers Watson\Desktop\trainocate\Exercise2\obj\Debug\net7.0\refint\Exercise2.dll
+C:\Users\lois83274\OneDrive - Willis Towers Watson\Desktop\trainocate\Exercise2\obj\Debug\net7.0\Exercise2.pdb
+C:\Users\lois83274\OneDrive - Willis Towers Watson\Desktop\trainocate\Exercise2\obj\Debug\net7.0\Exercise2.genruntimeconfig.cache
+C:\Users\lois83274\OneDrive - Willis Towers Watson\Desktop\trainocate\Exercise2\obj\Debug\net7.0\ref\Exercise2.dll
