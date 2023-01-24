@@ -1,6 +1,9 @@
-namespace Exercise2 {
-    namespace Models {
-        public class TodoItem {
+namespace Exercise2
+{
+    namespace Models
+    {
+        public class TodoItem
+        {
             public int id { get; set; }
             public string content { get; set; }
             public string status { get; set; }
@@ -12,16 +15,24 @@ namespace Exercise2 {
                 this.status = "pending";
             }
 
-            public bool Update(){
-                if (this.status == "pending"){
+            public bool Update()
+            {
+                if (this.status == "pending")
+                {
                     this.status = "active";
                     return true;
-                } else if (this.status == "active"){
+                }
+                else if (this.status == "active")
+                {
                     this.status = "done";
                     return true;
-                } else if (this.status == "done"){
+                }
+                else if (this.status == "done")
+                {
                     return false;
-                } else {
+                }
+                else
+                {
                     return false;
                 }
 

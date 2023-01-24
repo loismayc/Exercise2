@@ -1,11 +1,18 @@
 ﻿using Exercise2.Models;
 
-namespace Exercise2 {
-    public class Program {
+namespace Exercise2
+{
+    public class Program
+    {
         static List<TodoList> myLists = new List<TodoList>();
-        static TodoList selectedList;
-        static void Main(string[] args){
+        static TodoList listOnSelect;
 
+        static void Main(string[] args)
+        {
+            MainMenu();
+
+            static void MainMenu()
+            {
                 Console.WriteLine("Select an option: ");
                 Console.WriteLine("1 - Display All Lists");
                 Console.WriteLine("2 - Show Items");
@@ -19,36 +26,43 @@ namespace Exercise2 {
                 {
                     case 1:
                         DisplayAllLists();
+                        MainMenu();
                         break;
 
                     case 2:
                         ShowItems();
+                        MainMenu();
+
                         break;
 
                     case 3:
                         CreateNewList();
+                        MainMenu();
+
                         break;
-                    
+
                     case 4:
                         SelectList();
+                        MainMenu();
+
                         break;
-                    
+
                     case 5:
                         //exit
+                        Console.WriteLine("\nGoodbye ^_^");
                         return;
                     default:
                         // Handle invalid input
                         Console.WriteLine("Invalid choice. Please enter a number between 1 and 5.");
-                  
                         break;
                 }
-            
+            }
 
             static void DisplayAllLists()
             {
                 if (myLists.Count == 0)
                 {
-                    Console.WriteLine("No lists found.");
+                    Console.WriteLine("No lists found");
                     return;
                 }
 
@@ -67,7 +81,7 @@ namespace Exercise2 {
 
                 if (list == null)
                 {
-                    Console.WriteLine("List not found.");
+                    Console.WriteLine("List not found");
                     return;
                 }
 
@@ -106,110 +120,111 @@ namespace Exercise2 {
                 Console.WriteLine("Enter list id:");
                 int id = int.Parse(Console.ReadLine());
 
-                selectedList = myLists.Find(l => l.id == id);
+                listOnSelect = myLists.Find(l => l.id == id);
 
-                if (selectedList == null)
+                if (listOnSelect == null)
                 {
                     Console.WriteLine("List not found.");
                     return;
-                } while (true){
-                    
-                Console.WriteLine("Select an option: ");
-                Console.WriteLine("1 - Display All Lists");
-                Console.WriteLine("2 - Create New Item");
-                Console.WriteLine("3 - Create New List");
-                Console.WriteLine("4 - Select List");
-                Console.WriteLine("5 - Go Back");
-                int choice = int.Parse(Console.ReadLine());
-
-            switch (choice)
-            {
-                case 1:
-                    DisplayAllItems();
-                    break;
-                case 2:
-                    CreateNewItem();
-                    break;
-                case 3:
-                    DeleteItem();
-                    break;
-                case 4:
-                    UpdateItem();
-                    break;
-                case 5:
-                    return;
-                }
-            }
-
-            static void DisplayAllItems()
-            {
-                if (selectedList.todoItems.Count == 0)
+                } while (true)
                 {
-                    Console.WriteLine("No items found for list.");
-                    return;
+
+                    Console.WriteLine("\nSelect an option: ");
+                    Console.WriteLine("1 - Display All Items");
+                    Console.WriteLine("2 - Create New Item");
+                    Console.WriteLine("3 - Delete Item");
+                    Console.WriteLine("4 - Update Item");
+                    Console.WriteLine("5 - Go Back\n==================");
+                    int choice = int.Parse(Console.ReadLine());
+
+                    switch (choice)
+                    {
+                        case 1:
+                            DisplayAllItems();
+                            break;
+                        case 2:
+                            CreateNewItem();
+                            break;
+                        case 3:
+                            DeleteItem();
+                            break;
+                        case 4:
+                            UpdateItem();
+                            break;
+                        case 5:
+                            return;
+                    }
                 }
 
-                foreach (TodoItem item in selectedList.todoItems)
+                static void DisplayAllItems()
                 {
-                    Console.WriteLine($"{item.id} - {item.content} ({item.status})");
+                    if (listOnSelect.todoItems.Count == 0)
+                    {
+                        Console.WriteLine("No items found for list.");
+                        return;
+                    }
+
+                    foreach (TodoItem item in listOnSelect.todoItems)
+                    {
+                        Console.WriteLine($"{item.id} - {item.content} ({item.status})");
+                    }
                 }
-            }
 
-            static void CreateNewItem()
-            {
-                Console.WriteLine("Enter item content:");
-                string content = Console.ReadLine();
-
-                int id = 1;
-
-                if (selectedList.todoItems.Count > 0)
+                static void CreateNewItem()
                 {
-                    id = selectedList.todoItems[selectedList.todoItems.Count - 1].id + 1;
+                    Console.WriteLine("Enter item content:");
+                    string content = Console.ReadLine();
+
+                    int id = 1;
+
+                    if (listOnSelect.todoItems.Count > 0)
+                    {
+                        id = listOnSelect.todoItems[listOnSelect.todoItems.Count - 1].id + 1;
+                    }
+
+                    TodoItem item = new TodoItem(id, content);
+                    listOnSelect.todoItems.Add(item);
+
+                    Console.WriteLine("Item created successfully.");
                 }
 
-                TodoItem item = new TodoItem(id, content);
-                selectedList.todoItems.Add(item);
-
-                Console.WriteLine("Item created successfully.");
-            }
-
-            static void DeleteItem()
-            {
-                Console.WriteLine("Enter item id:");
-                int id = int.Parse(Console.ReadLine());
-
-                TodoItem item = selectedList.todoItems.Find(i => i.id == id);
-
-                if (item == null)
+                static void DeleteItem()
                 {
-                    Console.WriteLine("Invalid id.");
-                    return;
+                    Console.WriteLine("Enter item id to delete:");
+                    int id = int.Parse(Console.ReadLine());
+
+                    TodoItem item = listOnSelect.todoItems.Find(i => i.id == id);
+
+                    if (item == null)
+                    {
+                        Console.WriteLine("Invalid id.");
+                        return;
+                    }
+
+                    listOnSelect.todoItems.Remove(item);
                 }
 
-                selectedList.todoItems.Remove(item);
-            }
-
-            static void UpdateItem()
-            {
-                Console.WriteLine("Enter item id:");
-                int id = int.Parse(Console.ReadLine());
-
-                TodoItem item = selectedList.todoItems.Find(i => i.id == id);
-
-                if (item == null)
+                static void UpdateItem()
                 {
-                    Console.WriteLine("Invalid id.");
-                    return;
-                }
+                    Console.WriteLine("Enter item id:");
+                    int id = int.Parse(Console.ReadLine());
 
-                if (item.Update())
-                {
-                    Console.WriteLine("Item updated successfully.");
-                }
-                else
-                {
-                    Console.WriteLine("Item already done.");
-                }
+                    TodoItem item = listOnSelect.todoItems.Find(i => i.id == id);
+
+                    if (item == null)
+                    {
+                        Console.WriteLine("Invalid id.");
+                        return;
+                    }
+
+                    if (item.Update())
+                    {
+                        Console.WriteLine("Item updated successfully.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Item already done.");
+                    }
 
                 }
             }
